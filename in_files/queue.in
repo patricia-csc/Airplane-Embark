@@ -1,0 +1,36 @@
+20
+s3 anca 35 b true false
+f1 cornelia 33 e false false
+g2 teo 26 e false false
+g1 cristi 26 e true false
+g1 geo 30 e true false
+f2 george 1 e false false
+g1 sorin 17 e true false
+s4 vali 35 b false false
+g1 ana 18 e true false
+g1 maria 12 e true false
+f1 stefan 35 e false false
+g2 maria 12 e false true
+f1 ana 3 e false false
+g2 geo 30 e false false
+f2 otilia 28 e false false
+s1 cosmin 24 b false false 
+s2 ion 78 e true true
+g1 elena 14 e true false
+f1 luana 1 e false false
+f2 diana 30 e false false
+insert s1
+insert s2
+insert f1
+insert g2
+list
+embark
+list
+insert f2
+insert g1
+insert s3
+insert s4
+embark
+list
+embark
+list

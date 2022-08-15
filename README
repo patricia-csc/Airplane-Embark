@@ -1,0 +1,127 @@
+Clase:
+PriorityQueue - conține metoda main
+Node
+Passenger
+Ticket
+Plane
+Alone
+Group
+Family
+Person
+Special Needs
+
+
+Clasa PriorityQueue
+
+ArrayList<Integer> toBinary(int n)
+-> întoarce sub formă de ArrayList forma în binar a poziției nodului dorit
+
+Node returnParent(int position)
+-> întoarce nodul părintelui a cărui poziție este position (poziția părintelui
+este poziția nodului/2)
+
+Node returnCurrent(int position)
+-> întoarce nodul de la poziția dată
+
+void maxHeapify(Node node)
+-> rearanjează heapul în formă de coadă de priorități
+
+void preorder(Node node)
+-> printează în preordine coada de prioritate
+
+Node searchNode(Passenger p)
+-> caută în coada de prioritate pasagerul p (metodă folosită
+în cadrul metodei delete(Passenger p)
+
+void insert(Passenger p, int priority)
+-> adaugă pasageul p cu prioritatea dată în coada de prioritate și
+apelează maxHeapify pentru a rearanja coada de priorități
+
+void embark()
+-> introduce în avion rootul, pune ultimul nod adăugat ca root și
+apelează maxHeapify pentru a rearanja coada de priorități
+
+void list()
+-> apelează preorder pentru a printa coada de priorități
+
+delete(Passenger p)
+-> metoda șterge un nod (un pasager din coadă) în cazul în care pasagerul
+p nu are persoane (se verifică cu metoda isPassengerEmpty din clasa Passenger)
+sau șterge o persoana asciată lui p din grup/familie, utilizând metoda
+getFirstPerson() care întoarce numele persoanei ce urmează a fi șterse din
+clasa Passenger
+-> ID-ul pasagerului ce va fi șters este dat de metoda String getID() din
+clasa Passenger
+
+void main(String[] argv)
+-> primește ca parametrii 3 fișiere, intrare, ieșire și temporar.
+-> creează o instanță a clasei PriorityQueue ce reprezintă coada de priorități
+-> creează o instanță a clasei Plane ce reprezintă lista de pasageri
+-> introduce apelurile metodei list() în tempFile
+-> prelucrează tempFile și scrie outputul în outputFile (șterge spațiile de la
+finalul fiecărei linii, introduce /r/n și șterge ultimul newline de la finalul
+fișierului
+
+Clasa Node
+
+-> conține getters și setters
+-> data din Node este o instanță a clasei Passenger (grup, familie sau singur)
+
+swapRoot(Node root, Node parent, int numberOfNodes)
+-> scoate ultimul nod adăugat și îl pune în locul lui root (poate fi folosită
+și în cadrul metodei delete cu alt nod în afară de root)
+
+Clasa Plane
+
+addPeople(Passenger p)
+-> adaugă pasagerul p în avion
+
+searchPeople(String id)
+-> caută în avion pasagerul cu id-ul dat (pentru inserarea oamenilor în familii
+sau grupuri)
+
+Passenger getPassenger(String id)
+-> returnează pasagerul cu id-ul dat dacă există (pentru inserarea oamenilor
+în familii sau grupuri)
+
+Clasa Passenger
+
+-> clasă abstractă pentru toate tipurile de pasageri (singuri, familii și grup)
+-> conține id-ul, o listă cu persoane, tipul de bilet și numărul de persoane
+-> conține getters: getPriority, getID, getFirstPerson, getFirstPersonName
+(ultimele două utilizate în metoda delete)
+
+boolean isPassengerEmpty
+-> verifică dacă pasagerul are persoane (pentru metoda delete explicată mai
+sus)
+
+void addPerson(String name, int age, boolean specialNeeds)
+-> adaugă persoana în grupul de pasageri
+
+void removePerson(String name)
+-> șterge persoana cu numele dat din grupul de pasageri
+
+Clasele Alone, Family și Group
+
+-> extind clasa Passenger și suprascriu metoda getPriority pentru recalcularea
+priorității
+
+Clasa Person
+
+-> definește o singură persoană (nume, vârstă și nevoi speciale)
+-> conține getters (getAgePriority și getPersonPriority pentru calcularea
+priorităților și getName)
+
+Clasa SpecialNeeds
+
+-> reprezintă nevoile speciale
+
+getSpecialNeedsPriority()
+-> întoarce prioritatea pentru calcularea priorității persoanei
+
+Clasa Ticket
+
+-> reprezintă tipul de bilet asociat pasagerului, tipul de îmbarcare și
+prioritățile acestora
+-> getTicketPriority() și getEmbarkPriority folosesc la calcularea priorității
+pasagerilor
